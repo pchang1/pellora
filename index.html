@@ -14,12 +14,12 @@
     --ink:#ece1ca;
     --muted:#8c826e;
     --faint:#4f483c;
-    --gold:#8f6b19;
-    --gold-hi:#c5a04d;
-    --gold-lo:#4f3b0d;
-    --line:rgba(143,107,25,.16);
-    --line-soft:rgba(143,107,25,.08);
-    --grad-gold:linear-gradient(125deg,#4f3b0d 0%,#8f6b19 34%,#c5a04d 50%,#9b741b 66%,#4f3b0d 100%);
+    --gold:#a57c22;
+    --gold-hi:#d8bb6a;
+    --gold-lo:#5d430d;
+    --line:rgba(165,124,34,.18);
+    --line-soft:rgba(165,124,34,.09);
+    --grad-gold:linear-gradient(125deg,#5d430d 0%,#a57c22 32%,#d8bb6a 50%,#b88b2a 66%,#5d430d 100%);
     --serif:"Sora",sans-serif;
     --display:"Sora",sans-serif;
     --sans:"Jost",sans-serif;
@@ -98,7 +98,8 @@
     border:1px solid var(--line);padding:9px 20px;border-radius:40px;color:var(--gold-hi)!important;
     transition:border-color .35s,background .35s,color .35s!important;
   }
-  .nav-cta:hover{border-color:rgba(143,107,25,.42);background:rgba(143,107,25,.08)}
+  .nav-cta svg{display:none}
+  .nav-cta:hover{border-color:rgba(216,187,106,.42);background:rgba(165,124,34,.08)}
   .nav-cta::after{display:none}
   /* products dropdown */
   .nav-drop{position:relative}
@@ -121,7 +122,37 @@
   .drop-item::after{display:none}
   .drop-item .di-name{font-size:.8rem;letter-spacing:.12em;color:var(--gold-hi)}
   .drop-item .di-desc{font-size:.62rem;letter-spacing:.08em;color:var(--faint);text-transform:none}
-  @media(max-width:860px){.nav-links a:not(.nav-cta),.nav-drop{display:none}}
+  @media(max-width:860px){
+    nav,nav.scrolled{padding:14px 16px}
+    .brand{gap:8px;min-width:0}
+    .brand .name{display:inline;font-size:.86rem;letter-spacing:.2em;padding-left:.2em}
+    .brand .mark{width:26px;height:26px}
+    .nav-links{gap:12px;margin-left:auto}
+    .nav-links>a:not(.nav-cta){display:none}
+    .nav-drop{display:block}
+    .nav-drop>.drop-trigger{display:inline-flex!important;font-size:.7rem;letter-spacing:.16em;color:var(--gold-hi)}
+    .nav-cta{
+      width:36px;height:36px;padding:0;border-radius:50%;
+      display:inline-flex;align-items:center;justify-content:center;
+    }
+    .nav-cta .label{display:none}
+    .nav-cta svg{display:block;width:16px;height:16px}
+    .drop-menu{left:auto;right:0;transform:translateY(8px);min-width:210px}
+    .nav-drop:hover .drop-menu,.nav-drop.open .drop-menu,.nav-drop:focus-within .drop-menu{
+      opacity:1;visibility:visible;pointer-events:auto;transform:translateY(0);
+    }
+    .nav-drop.open>.drop-trigger svg{transform:rotate(180deg)}
+    .drop-menu::before{left:auto;right:22px;transform:rotate(45deg)}
+  }
+  @media(max-width:430px){
+    nav,nav.scrolled{padding:14px 14px}
+    .brand{gap:6px}
+    .brand .name{display:inline;font-size:.76rem;letter-spacing:.14em;padding-left:.14em}
+    .brand .mark{width:24px;height:24px}
+    .nav-links{gap:10px}
+    .nav-drop>.drop-trigger{font-size:.64rem;letter-spacing:.12em}
+    .nav-cta{width:34px;height:34px}
+  }
 
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 0 60px}
@@ -132,7 +163,7 @@
   .spin{position:absolute;inset:0;animation:spin 60s linear infinite}
   .spin.rev{animation-duration:90s;animation-direction:reverse}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .node{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 12px 2px rgba(143,107,25,.48);top:-2px;left:50%;margin-left:-2px}
+  .node{position:absolute;width:5px;height:5px;border-radius:50%;background:var(--gold-hi);box-shadow:0 0 12px 2px rgba(216,187,106,.42);top:-2px;left:50%;margin-left:-2px}
 
   .logo-stage{position:relative;z-index:2;width:min(88vw,560px);margin-bottom:46px;display:flex;flex-direction:column;align-items:center;gap:26px}
   /* radial gold bloom so the mark melts into the dark ground */
@@ -212,53 +243,53 @@
   }
   .vision-shell::before{
     content:"";position:absolute;inset:0 0 auto 0;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(143,107,25,.42),transparent);
+    background:linear-gradient(90deg,transparent,rgba(216,187,106,.38),transparent);
   }
   .vision-shell::after{
     content:"";position:absolute;left:50%;top:50%;width:min(72vw,720px);aspect-ratio:1;
     transform:translate(-50%,-50%);border-radius:50%;
-    background:radial-gradient(circle,rgba(143,107,25,.14),rgba(143,107,25,.04) 36%,transparent 68%);
+    background:radial-gradient(circle,rgba(216,187,106,.13),rgba(143,107,25,.04) 36%,transparent 68%);
     filter:blur(10px);z-index:-1;pointer-events:none;
   }
   .vision-copy{position:relative;z-index:3;text-align:center;display:flex;justify-content:center}
   .vision-copy .sec-head{margin:0 auto 22px;max-width:760px}
   .vision-copy h2{letter-spacing:.04em;text-transform:uppercase}
-  .vision-copy h2 em{color:#9b741b}
+  .vision-copy h2 em{color:#b88b2a}
   .vision-core{
     position:relative;min-height:0;padding:118px 0 8px;
   }
   .vision-core::before{
     content:"";position:absolute;left:10%;right:10%;top:184px;height:1px;
-    background:linear-gradient(90deg,transparent,rgba(143,107,25,.24),rgba(143,107,25,.07),rgba(143,107,25,.24),transparent);
-    box-shadow:0 0 28px rgba(143,107,25,.14);
+    background:linear-gradient(90deg,transparent,rgba(165,124,34,.22),rgba(143,107,25,.07),rgba(165,124,34,.22),transparent);
+    box-shadow:0 0 28px rgba(216,187,106,.13);
   }
   .core-orbit{
     position:absolute;z-index:0;left:50%;top:0;width:min(86vw,620px);aspect-ratio:1;border-radius:50%;
     transform:translateX(-50%);
     border:1px solid rgba(143,107,25,.1);
     background:
-      radial-gradient(circle at 50% 50%, rgba(143,107,25,.14), transparent 22%),
+      radial-gradient(circle at 50% 50%, rgba(216,187,106,.13), transparent 22%),
       radial-gradient(circle at 50% 50%, transparent 45%, rgba(143,107,25,.06) 46%, transparent 47%),
       radial-gradient(circle at 50% 50%, transparent 66%, rgba(143,107,25,.08) 67%, transparent 68%);
     animation:coreBreath 6s ease-in-out infinite;
   }
   .core-orbit::before,.core-orbit::after{
-    content:"";position:absolute;inset:12%;border:1px solid rgba(143,107,25,.12);border-radius:50%;
+    content:"";position:absolute;inset:12%;border:1px solid rgba(216,187,106,.12);border-radius:50%;
   }
-  .core-orbit::after{inset:28%;border-color:rgba(143,107,25,.14);box-shadow:0 0 50px rgba(143,107,25,.16)}
+  .core-orbit::after{inset:28%;border-color:rgba(216,187,106,.13);box-shadow:0 0 50px rgba(165,124,34,.16)}
   @keyframes coreBreath{50%{transform:translateX(-50%) scale(1.035);filter:saturate(125%)}}
   .core-mark{
     position:absolute;z-index:2;left:50%;top:34px;transform:translateX(-50%);
     width:128px;height:128px;border-radius:50%;
     display:grid;place-items:center;background:rgba(6,5,4,.72);
-    border:1px solid rgba(143,107,25,.24);box-shadow:0 0 80px rgba(143,107,25,.24);
+    border:1px solid rgba(165,124,34,.22);box-shadow:0 0 80px rgba(165,124,34,.22);
   }
-  .core-mark svg{width:72px;height:72px;filter:drop-shadow(0 0 24px rgba(143,107,25,.32))}
+  .core-mark svg{width:72px;height:72px;filter:drop-shadow(0 0 24px rgba(216,187,106,.28))}
   .pillars{position:relative;z-index:3;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
   .pillar{
     position:relative;overflow:hidden;min-height:310px;
     background:linear-gradient(145deg,rgba(10,8,6,.9),rgba(1,1,1,.68));
-    border:1px solid rgba(143,107,25,.2);padding:30px;border-radius:18px;
+    border:1px solid rgba(165,124,34,.22);padding:30px;border-radius:18px;
     backdrop-filter:blur(14px);box-shadow:0 24px 70px rgba(0,0,0,.32);
     transition:transform .5s var(--ease),border-color .5s,background .5s;
   }
@@ -266,22 +297,22 @@
   .pillar:nth-child(2):hover{transform:translateY(26px)}
   .pillar::before{
     content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;
-    background:linear-gradient(135deg,rgba(143,107,25,.48),transparent 34%,rgba(91,67,15,.26));
+    background:linear-gradient(135deg,rgba(216,187,106,.42),transparent 34%,rgba(165,124,34,.24));
     -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
     -webkit-mask-composite:xor;mask-composite:exclude;opacity:.35;pointer-events:none;
   }
   .pillar::after{
     content:"";position:absolute;right:-30%;top:-40%;width:70%;aspect-ratio:1;border-radius:50%;
-    background:radial-gradient(circle,rgba(143,107,25,.14),transparent 65%);opacity:0;
+    background:radial-gradient(circle,rgba(216,187,106,.13),transparent 65%);opacity:0;
     transition:opacity .5s var(--ease),transform .5s var(--ease);
   }
-  .pillar:hover{transform:translateY(-8px);border-color:rgba(143,107,25,.36);background:linear-gradient(145deg,rgba(18,14,8,.9),rgba(1,1,1,.7))}
+  .pillar:hover{transform:translateY(-8px);border-color:rgba(216,187,106,.34);background:linear-gradient(145deg,rgba(18,14,8,.9),rgba(1,1,1,.7))}
   .pillar:hover::after{opacity:1;transform:translate(-8%,8%)}
-  .pillar .idx{font-family:var(--display);font-weight:300;letter-spacing:.22em;font-size:.68rem;text-transform:uppercase;color:#7b5a13;opacity:.82}
-  .pillar .picon{width:48px;height:48px;margin:30px 0 28px;filter:drop-shadow(0 0 18px rgba(143,107,25,.18));opacity:.86}
+  .pillar .idx{font-family:var(--display);font-weight:300;letter-spacing:.22em;font-size:.68rem;text-transform:uppercase;color:#9b741b;opacity:.82}
+  .pillar .picon{width:48px;height:48px;margin:30px 0 28px;filter:drop-shadow(0 0 18px rgba(216,187,106,.18));opacity:.86}
   .pillar h3{font-family:var(--serif);font-size:1.45rem;letter-spacing:.04em;margin-bottom:12px}
   .pillar p{color:var(--muted);font-size:.94rem;line-height:1.55}
-  .pillar .barline{margin-top:24px;height:1px;width:44px;background:linear-gradient(90deg,#4f3b0d,#8f6b19,#5b430f);transition:width .5s var(--ease)}
+  .pillar .barline{margin-top:24px;height:1px;width:44px;background:linear-gradient(90deg,#5d430d,#a57c22,#d8bb6a,#9b741b);transition:width .5s var(--ease)}
   .pillar:hover .barline{width:100%}
   @media(max-width:960px){
     .vision-shell{padding:58px 0 8px}
@@ -302,8 +333,8 @@
   .step h4{font-family:var(--serif);font-size:1.18rem;margin-bottom:6px;letter-spacing:.03em}
   .step p{color:var(--muted);font-size:.94rem}
   .serpent-art{position:relative;display:flex;align-items:center;justify-content:center}
-  .serpent-art svg{width:100%;max-width:380px;filter:drop-shadow(0 0 40px rgba(143,107,25,.2))}
-  .serpent-art .halo{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(143,107,25,.18),transparent 65%);animation:pulse 5s ease-in-out infinite}
+  .serpent-art svg{width:100%;max-width:380px;filter:drop-shadow(0 0 40px rgba(165,124,34,.22))}
+  .serpent-art .halo{position:absolute;width:70%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(216,187,106,.18),transparent 65%);animation:pulse 5s ease-in-out infinite}
   @keyframes pulse{50%{transform:scale(1.12);opacity:.7}}
   .dashpath{stroke-dasharray:6 8;animation:dash 30s linear infinite}
   @keyframes dash{to{stroke-dashoffset:-400}}
@@ -357,8 +388,8 @@
 <svg style="display:none">
   <defs>
     <linearGradient id="goldg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#4f3b0d"/><stop offset=".4" stop-color="#8f6b19"/>
-      <stop offset=".55" stop-color="#c5a04d"/><stop offset="1" stop-color="#5b430f"/>
+      <stop offset="0" stop-color="#5d430d"/><stop offset=".4" stop-color="#a57c22"/>
+      <stop offset=".55" stop-color="#d8bb6a"/><stop offset="1" stop-color="#6f5011"/>
     </linearGradient>
     <symbol id="serp" viewBox="0 0 450 455">
       <g fill="url(#goldg)" fill-rule="evenodd">
@@ -390,7 +421,13 @@
       </div>
     </div>
     <a href="#vision">Vision</a>
-    <a href="mailto:contact@pellora.net" class="nav-cta">Contact</a>
+    <a href="mailto:contact@pellora.net" class="nav-cta" aria-label="Email Pellora">
+      <span class="label">Contact</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 6h16v12H4z"/>
+        <path d="m4 7 8 6 8-6"/>
+      </svg>
+    </a>
   </div>
 </nav>
 
@@ -410,12 +447,12 @@
       <svg class="logo-mark" viewBox="0 0 450 455" fill="none" aria-hidden="true">
         <defs>
           <linearGradient id="markGold" x1="0" y1="1" x2="1" y2="0">
-            <stop offset="0" stop-color="#4b380c"/>
-            <stop offset=".30" stop-color="#806117"/>
-            <stop offset=".48" stop-color="#b8943f"/>
-            <stop offset=".58" stop-color="#c8aa5b"/>
-            <stop offset=".74" stop-color="#927018"/>
-            <stop offset="1" stop-color="#4f3b0d"/>
+            <stop offset="0" stop-color="#5a400c"/>
+            <stop offset=".30" stop-color="#9a731e"/>
+            <stop offset=".48" stop-color="#caa858"/>
+            <stop offset=".58" stop-color="#ddc37a"/>
+            <stop offset=".74" stop-color="#ad8225"/>
+            <stop offset="1" stop-color="#5d430d"/>
           </linearGradient>
           <filter id="markGlow" x="-40%" y="-40%" width="180%" height="180%">
             <feGaussianBlur stdDeviation="6" result="b"/>
@@ -628,11 +665,25 @@
     requestAnimationFrame(frame);
   })();
 
-  // nav scroll state
-  const nav=document.getElementById('nav');
-  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
+	  // nav scroll state
+	  const nav=document.getElementById('nav');
+	  addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>40));
 
-  // custom cursor
+	  // mobile products menu
+	  const navDrop=document.querySelector('.nav-drop');
+	  const dropTrigger=navDrop?.querySelector('.drop-trigger');
+	  if(navDrop && dropTrigger){
+	    dropTrigger.addEventListener('click',e=>{
+	      if(!matchMedia('(hover:none), (pointer:coarse)').matches) return;
+	      e.preventDefault();
+	      navDrop.classList.toggle('open');
+	    });
+	    document.addEventListener('click',e=>{
+	      if(!navDrop.contains(e.target)) navDrop.classList.remove('open');
+	    });
+	  }
+
+	  // custom cursor
   const cur=document.querySelector('.cursor');
   const dot=cur?.querySelector('.dot'),ring=cur?.querySelector('.ring');
   if(cur && dot && ring && matchMedia('(hover:hover) and (pointer:fine)').matches){
